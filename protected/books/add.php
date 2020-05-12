@@ -1,7 +1,6 @@
 <?php if(!isset($_SESSION['permission']) || $_SESSION['permission'] < 1) : ?>
 	<h1>Page access is forbidden!</h1>
-<?php else : ?>
-	<?php
+<?php else : 
 
 		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addBook'])){
 			$postData = [
@@ -39,22 +38,22 @@
 	<form method="post">
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label for="book_title">Book title</label>
-				<input type="text" class="form-control" id="book_title" name="book_title">
+				<label for="bookTitle">Book title</label>
+				<input type="text" class="form-control" id="bookTitle" name="book_title">
 			</div>
 		</div>
 
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label for="length">Length</label>
-				<input type="text" class="form-control" id="length" name="length">
+				<label for="bookLength">Length</label>
+				<input type="text" class="form-control" id="bookLength" name="length">
 			</div>
 		</div>
 
 		<div class="form-row">
 			<div class="form-group col-md-6">
-		    	<label for="difficulty">Difficulty</label>
-		    	<select class="form-control" id="difficulty" name="difficulty">
+		    	<label for="bookDifficulty">Difficulty</label>
+		    	<select class="form-control" id="bookDifficulty" name="difficulty">
 		    		<option value="0">There is nothing </option>
 		      		<option value="1">Very easy</option>
 		      		<option value="2">Easy</option>
@@ -67,8 +66,8 @@
 
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label for="category">Category</label>
-				<select class="form-control" id="category" name="category">
+				<label for="bookCategory">Category</label>
+				<select class="form-control" id="bookCategory" name="category">
 					<option value="0">There is nothing here</option>
 		      		<option value="Fantasy">Fantasy</option>
 		      		<option value="Horror">Horror</option>
@@ -87,15 +86,16 @@
 
 		<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="description">Description</label>
-					<textarea type="text" placeholder="Please write something about it!" class="form-control" id="description" name="description" rows="3"></textarea>
+					<label for="bookDescription">Description</label>
+					<textarea type="text" placeholder="Please write something about it!" class="form-control" 
+					id="bookDescription" name="description" rows="3"></textarea>
 				</div>
 		</div>
 
 		<div class="form-row">
 			<div class="form-group col-md-6">
-		    	<label for="rating">Rating</label>
-		    	<select class="form-control" id="rating" name="rating">
+		    	<label for="bookRating">Rating</label>
+		    	<select class="form-control" id="bookRating" name="rating">
 		    		<option value="0">There is nothing </option>
 		      		<option value="1">One star</option>
 		      		<option value="2">Two stars</option>

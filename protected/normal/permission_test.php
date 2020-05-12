@@ -6,16 +6,16 @@
 	<p>Your permission level is <?=$_SESSION['permission'] ?></p>
 	<?php switch ($_SESSION['permission']) {
 		case '0':
-			echo "Szét tud nézni a könyvek között.";
+			echo "You can search for books.";
 			break;
 		case '1':
-			echo "Akár hozzá is tud adni egy újat.";
+			echo "You can add a new one.";
 			break;
 		case '2':
-			echo "Szerkesztheti a felhasználók adatait és törölni is tud.";
+			echo "You can edit the users profile and you can even add a user.";
 			break;
 		default:
-			echo "Keresgélhet, hozzá is adhat. Ezen kívül szerkesztheti a felhasználók adatait és törölheti is őket.";
+			echo "All of the functions are available for you.";
 			break;
 	} ?>
 <?php endif; ?>

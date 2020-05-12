@@ -15,10 +15,10 @@
 	<?php 
 		$query = "SELECT id, book_title, length, difficulty, category, rating FROM books ORDER BY book_title ASC";
 		require_once DATABASE_CONTROLLER;
-		$recipes = getList($query);
+		$books = getList($query);
 	?>
 
-	<?php if(count($recipes) <= 0) : ?>
+	<?php if(count($books) <= 0) : ?>
 		<h1>No books found in the database.</h1>
 	<?php else : ?>
 		<table class="table table-striped">
