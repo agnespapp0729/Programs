@@ -1,3 +1,6 @@
+<?php if(!isset($_SESSION['permission'])): ?>
+	<h1>Page access is forbidden!</h1>
+<?php else : ?>
  <?php 
  if(array_key_exists('d', $_GET) && !empty($_GET['d'])) {
  		$query = "DELETE FROM books WHERE id = :id";
@@ -9,14 +12,22 @@
 	}
  ?>
 
-<?php if(!isset($_SESSION['permission'])): ?>
-	<h1>Page access is forbidden!</h1>
-<?php else : ?>
-	<?php 
-		$query = "SELECT id, book_title, length, difficulty, category, rating FROM books ORDER BY book_title ASC";
-		require_once DATABASE_CONTROLLER;
-		$books = getList($query);
+	<?php
+		if(isset($_POST['submit']) && $_POST['word'] !== ' ' && !(empty($_POST['word']))){
+			$search = $_POST['word'];
+		
+			$query = "SELECT id, book_title, length, difficulty, category, rating FROM books WHERE book_title LIKE '%$search%'";
+			require_once DATABASE_CONTROLLER;
+			$books = getList($query);
+		}
+		else{
+			$query = "SELECT id, book_title, length, difficulty, category, rating FROM books ORDER BY book_title ASC";
+			require_once DATABASE_CONTROLLER;
+			$books = getList($query);
+		}
 	?>
+
+
 
 	<?php if(count($books) <= 0) : ?>
 		<h1>No books found in the database.</h1>

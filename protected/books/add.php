@@ -16,7 +16,8 @@
 
 			if(empty($postData['book_title']) || empty($postData['length']) || empty($postData['difficulty']) || empty($postData['category']) || empty($postData['description']) || empty($postData['rating'])){
 				echo "Hiányzó adat(ok)";
-			} else {
+			} 
+			else {
 				$query = "INSERT INTO books (book_title, length, difficulty, category, description, rating) VALUES (:book_title, :length, :difficulty, :category, :description, :rating)";
 				$params = [
 					':book_title' => $postData['book_title'],

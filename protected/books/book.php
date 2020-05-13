@@ -2,7 +2,7 @@
 	<h1>Page access is forbidden!</h1>
 <?php else : ?>
 	<?php 
-		$query = "SELECT id, book_title, lenght, difficulty, category, description, rating FROM books WHERE id = :id";
+		$query = "SELECT id, book_title, length, difficulty, category, description, rating FROM books WHERE id = :id";
 		require_once DATABASE_CONTROLLER;
 		$params = [':id' => $_GET['id']];
 		$books = getList($query, $params);
